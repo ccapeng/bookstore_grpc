@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package book;
+
+import "google/protobuf/empty.proto";
+
+service PublisherController {
+    rpc List(PublisherListRequest) returns (GetPublisherListResponse) {};
+    rpc Create(Publisher) returns (Publisher) {};
+    rpc Retrieve(PublisherRetrieveRequest) returns (Publisher) {};
+    rpc Update(Publisher) returns (Publisher) {};
+    rpc Destroy(Publisher) returns (google.protobuf.Empty) {};
+}
+
+message Publisher {
+    int32 id = 1;
+    string name = 2;
+}
+
+message PublisherListRequest {}
+
+message GetPublisherListResponse{
+    repeated Publisher publisherList = 1;
+}
+
+message PublisherRetrieveRequest {
+    int32 id = 1;
+}
