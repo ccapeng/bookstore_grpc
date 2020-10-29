@@ -40,6 +40,11 @@ class BookService(Service):
             yield msg
 
     def Create(self, request, context):
+        ''' 
+        self:
+        request: book_pb2.Book
+        context:
+        '''
         print("Create")
         print("request:", request)
         print("request type:", type(request))
